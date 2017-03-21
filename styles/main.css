@@ -1,8 +1,8 @@
-*, *::before, *::after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
+ *, *::before, *::after {
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+ }
 
 html {
      height: 100%; /* makes sure our HTML takes up 100% of the browser window */
@@ -91,15 +91,13 @@ html {
  @media (min-width: 640px) {
    /* Style information will go here */
      html { font-size: 112%; }
-     
-      
+ 
      .column {
          float: left;
          padding-left: 1rem;
          padding-right: 1rem;
      }
-     
-      
+         
      .column.full { width: 100%; }
      .column.two-thirds { width: 66.7%; }
      .column.half { width: 50%; }
@@ -114,3 +112,20 @@ html {
      html { font-size: 120%; }
  }
 
+.clearfix::before,
+.clearfix::after {
+   content: " ";
+   display: table;
+}
+
+.clearfix::after {
+   clear: both;
+}
+
+.test {
+    color: green;
+}
+
+.clearfix {
+    *zoom: 1;
+} 
