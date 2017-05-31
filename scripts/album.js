@@ -30,6 +30,23 @@
      ]
  };
 
+ // 3RD ALBUM VIEW
+ var albumThree = {
+     title: 'Trinity',
+     artist: 'Kolme',
+     label: 'Tri',
+     year: '2016',
+     albumArtUrl: 'assets/images/album_covers/06.png',
+     songs: [
+         { title: 'Song 1', duration: '3:05' },
+         { title: 'Song 2', duration: '3:30' },
+         { title: 'Song 3', duration: '2:45'},
+         { title: 'Song 4', duration: '4:20' },
+         { title: 'Song 5', duration: '3:15'}
+     ]
+ }; 
+
+
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -42,15 +59,14 @@
      return template;
  };
 
+
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+
  var setCurrentAlbum = function(album) {
-     // #1
-     var albumTitle = document.getElementsByClassName('album-view-title')[0];
-     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-     var albumImage = document.getElementsByClassName('album-cover-art')[0];
-     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
- 
-     // #2
      albumTitle.firstChild.nodeValue = album.title;
      albumArtist.firstChild.nodeValue = album.artist;
      albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
@@ -67,4 +83,14 @@
  
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
+     
+     var albums = [albumPicasso, albumMarconi, albumThree];
+     var index = 1;
+     albumImage.addEventListener("click", function(event) {
+         setCurrentAlbum(albums[index]);
+         index++;
+         if (index == albums.length){
+             index = 0;
+         }
+     });
  };
