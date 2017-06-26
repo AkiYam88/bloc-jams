@@ -84,52 +84,32 @@ var setCurrentAlbum = function(album) {
      }
  };
 
-/*
-//original
-var findParentByClassName = function(element, targetClass) {
-    if (element) {
+var findParentByClassName = function(element, targetClass){
+    if(element){
+        console.log("start");
         var currentParent = element.parentElement;
-        while (currentParent.className !== targetClass && currentParent.className !== null) {
+      
+        if(!currentParent){
+          console.log("No parent found");
+          return;
+        }
+    
+        while (currentParent && currentParent.className !== targetClass) {
+            console.log("still looping");
             currentParent = currentParent.parentElement;
+             if( !currentParent || currentParent.className === null ){
+               console.log("No parent found with that class name");
+             }
+          
         }
         return currentParent;
-    }
-};
-*/
-
-/* 
-//revise w/o string when it fails to find a parent w the given class name
-var findParentByClassName = function(element, targetClass){
-    if(element){
-        console.log("start");
-        var currentParent = element.parentElement;
-    
-        while (currentParent && currentParent.className !== targetClass) {
-            console.log("still looping");
-            currentParent = currentParent.parentElement;
-        }   
-        console.log("No parent found");
-        return currentParent;
-    }
-}; */
-
-
-var findParentByClassName = function(element, targetClass){
-    if(element){
-        console.log("start");
-        var currentParent = element.parentElement;
-    
-        while (currentParent && currentParent.className !== targetClass) {
-            console.log("still looping");
-            currentParent = currentParent.parentElement;
-        }   
-        console.log("No parent found");
-        return currentParent;
         
-        } else (currentParent === null);
-            console.log("No parent found with that class name");
-
+     } 
 };
+
+var firstEl = document.getElementsByClassName('song-item-number')[0];
+var htmlTag = document.getElementsByTagName('html')[0];
+findParentByClassName(htmlTag, " ");
 
 
 
