@@ -132,7 +132,7 @@ $(document).ready(function(){
      
      var albums = [albumPicasso, albumMarconi, albumThree];
      var index = 1;
-     albumImage.addEventListener("click", function(event) {
+     $albumImage.addEventListener("click", function(event) {
          setCurrentAlbum(albums[index]);
          index++;
          if (index == albums.length){
