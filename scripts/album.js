@@ -234,4 +234,4 @@ $(document).ready(function(){
              index = 0;
          }
      });
- });
+});
