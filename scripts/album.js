@@ -137,10 +137,7 @@ var currentVolume = 80;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
-<<<<<<< HEAD
-=======
 var $playerBarPlayPauseButton = $('.main-controls .play-pause');
->>>>>>> cp32-assignment
 /**/
  var previousSong = function() {
      setSong(currentSongIndex + 1);
