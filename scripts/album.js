@@ -13,16 +13,6 @@ var setSong = function(songNumber) {
  
      setVolume(currentVolume);
  };
-
- var previousSong = function() {
-     setSong(currentSongIndex + 1);
-     currentSoundFile.play();
- };
-
- var nextSong = function() {
-     setSong(currentSongIndex + 1);
-     currentSoundFile.play();
- };
  
  var setVolume = function(volume) {
      if (currentSoundFile) {
@@ -147,6 +137,17 @@ var currentVolume = 80;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+/**/
+ var previousSong = function() {
+     setSong(currentSongIndex + 1);
+     currentSoundFile.play();
+ };
+
+ var nextSong = function() {
+     setSong(currentSongIndex + 1);
+     currentSoundFile.play();
+ };
+/**/
 
 var nextSong = function() {
     var currentSongIndex = trackIndex(currentAlbum, currentSongFromAlbum);
