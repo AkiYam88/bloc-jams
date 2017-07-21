@@ -137,6 +137,10 @@ var currentVolume = 80;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+<<<<<<< HEAD
+=======
+var $playerBarPlayPauseButton = $('.main-controls .play-pause');
+>>>>>>> cp32-assignment
 /**/
  var previousSong = function() {
      setSong(currentSongIndex + 1);
@@ -196,7 +200,7 @@ var previousSong = function() {
     // Update the Player Bar information
     updatePlayerBarSong();
 
-    $('.main-controls .play-pause').html(playerBarPauseButton);
+  $('.main-controls .play-pause').html(playerBarPauseButton);
 
     var $previousSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
     var $lastSongNumberCell = $('.song-item-number[data-song-number="' + lastSongNumber + '"]');
@@ -205,10 +209,25 @@ var previousSong = function() {
     $lastSongNumberCell.html(lastSongNumber);
 	};
 
+
+    var togglePlayFromPlayerBar = function(){
+        var songNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
+        if (currentSoundFile.isPaused()) {
+            songNumberCell.html(pauseButtonTemplate);
+            $(this).html(playerBarPauseButton);
+            currentSoundFile.play();
+        } else {
+            songNumberCell.html(playButtonTemplate);
+            $(this).html(playerBarPlayButton);
+            currentSoundFile.pause();
+        }
+        };
+
 $(document).ready(function(){
      setCurrentAlbum(albumPicasso);
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
+     $playerBarPlayPauseButton.click(togglePlayFromPlayerBar);
      var albums = [albumPicasso, albumMarconi, albumThree];
      var index = 1;
      $albumImage.click(function(event) {
